@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 def statics_urls():
     if settings.DEBUG:
@@ -11,4 +11,5 @@ def statics_urls():
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('tasks/', include('tasks.urls')),
 ] + statics_urls()
